@@ -173,7 +173,7 @@ func startWebhookServer(ctx context.Context, cnf *Config, w *WatchDog) <-chan er
 		return errChan
 	}
 	mux := &http.ServeMux{}
-	webhookEndpoint := "GET /webhook/" + cnf.Token
+	webhookEndpoint := "/webhook/" + cnf.Token
 	mux.Handle(webhookEndpoint, w)
 	server := &http.Server{
 		Addr:    cnf.ListenAddr,
